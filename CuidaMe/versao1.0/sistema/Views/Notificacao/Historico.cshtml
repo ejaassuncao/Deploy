@@ -1,0 +1,40 @@
+﻿@using CuidarMe.Web.Models.Filter
+@using CuidarMe.Domain.Helpers
+@model NotificacaoFilter
+@{
+    ViewBag.Title = "Histórico de " + @Model.TipoDeNotificacao.ToDescriptionString();
+}
+@section scripts {
+    <script src="@Url.Content("~/Scripts/Notificacao/service.js")"></script>
+    <script src="@Url.Content("~/Scripts/Notificacao/module.js")"></script>
+}
+
+<div ng-controller="HistoricoController" ng-init="iniciar(@Model.IdosoId, '@Model.TipoDeNotificacao')">
+    <h2>@ViewBag.Title </h2>
+    <div class="form-group mt-2">
+        <button type="button" class="btn btn-outline-secondary" ng-click="cancelar()">Voltar</button>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <strong>Idoso:</strong> {{idoso.Nome}} <br>
+            <strong>Telefone:</strong> {{idoso.Telefone}}<br>
+            <strong>MEI:</strong> {{idoso.Imei}}<br>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-3">
+            <search placeholder="Digite o termo de busca..."
+                    ng-model="filtros.search"
+                    on-search="listarHistorico()">
+            </search>
+        </div>
+    </div>
+
+    <datatable items="item in notificacoes" filters="filtros" refresh="listarHistorico()">
+        <column orderable get="item.Data | shortDateTimeString">Data</column>
+        <column get="item.Texto">Texto</column>
+    </datatable>
+    <pagination filters="filtros" refresh="listarHistorico()"></pagination>
+</div>

@@ -1,0 +1,69 @@
+﻿@{
+    ViewBag.Title = "Pulseira";
+}
+
+@section scripts {
+    <script src="@Url.Content("~/Scripts/Pulseira/service.js")"></script>
+    <script src="@Url.Content("~/Scripts/Pulseira/module.js")"></script>
+}
+
+<div ng-controller="ListPulseiraController">
+    <h2>@ViewBag.Title</h2>
+
+    <div class="row">
+        <div class="col-md-3">
+            <search placeholder="Digite o termo de busca..."
+                    ng-model="filtros.search"
+                    on-search="listar()">
+            </search>
+        </div>
+    </div>
+
+    <datatable items="item in pulseiras" filters="filtros" refresh="listar()">
+        <column orderable get="item.Imei" initial>Imei</column>
+        <column get="item.NomeDoIdoso">Idoso</column>
+        <column orderable get="item.Telefone">Telefone</column>
+        <column orderable get="item.NomeDoModoDeTrabalho">Modo de trabalho</column>
+        <column orderable get="item.NomeDoIntervaloDeMonitoramento">Intervalo de monitoramento</column>
+       
+        <buttons>
+            <button icon-fa="eye" class="btn btn-sm btn-dark" ng-click="visualizar(item.Id)"></button>
+            <button icon-fa="cog" ng-click="abrirDialog(item)"></button>
+            <button edit="editar(item)"></button>
+            <button remove="excluir(item)"></button>
+        </buttons>
+    </datatable>
+
+    <pagination filters="filtros" refresh="listar()"></pagination>
+
+
+    <dialog is-open="aberta" static>
+        <dialog-form>
+            <validation submit="salvarConfiguracao()"></validation>
+
+            <dialog-title>
+                Configuração da pulseira
+            </dialog-title>
+            <dialog-body>
+
+                <div class="form-group">
+                    <label>Modo de trabalho</label>
+                    <enum object="modosDeTrabalho" ng-model="pulseiraSelecionada.ModoDeTrabalho"></enum>
+                </div>
+
+                <div class="form-group">
+                    <label>Intervalo de leitura</label>
+                    <input type="number" class="form-control" ng-model="pulseiraSelecionada.IntervaloDeMonitoramento" min="1"/>
+                </div>
+
+            </dialog-body>
+            <dialog-footer>
+                <button class="btn btn-success">Salvar</button>
+                <button type="button" class="btn btn-danger" ng-click="resetar()">Resetar</button>
+                <button type="button" class="btn btn-outline-secondary" ng-click="fecharDialog()">Cancelar</button>
+            </dialog-footer>
+
+        </dialog-form>
+    </dialog>
+
+</div>

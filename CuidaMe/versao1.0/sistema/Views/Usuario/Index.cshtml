@@ -1,0 +1,33 @@
+﻿@{
+	ViewBag.Title = "Usuário";
+}
+@section scripts {
+	<script src="@Url.Content("~/Scripts/Usuario/service.js")"></script>
+	<script src="@Url.Content("~/Scripts/Usuario/module.js")"></script>
+}
+<div ng-controller="ListUsuarioController">
+	<h2>@ViewBag.Title</h2>
+
+	<div class="row">
+		<div class="col-md-3">
+			<search placeholder="Digite o termo de busca..."
+					ng-model="filtros.search"
+					on-search="listar()">
+			</search>
+		</div>
+	</div>
+
+    <datatable items="item in usuarios" filters="filtros" refresh="listar()">
+        <column orderable get="item.Nome" initial>Nome</column>
+        <column orderable get="item.Documento">Documento</column>
+        <column orderable get="item.Email">E-mail</column>
+        <column orderable get="item.Master==1?'Master':'Cliente'">Tipo</column>
+        <buttons>
+            <button new="@Url.Action("Create")"></button>
+            <button edit="editar(item)"></button>
+            <button remove="excluir(item)"></button>
+        </buttons>
+    </datatable>
+
+	<pagination filters="filtros" refresh="listar()"></pagination>
+</div>

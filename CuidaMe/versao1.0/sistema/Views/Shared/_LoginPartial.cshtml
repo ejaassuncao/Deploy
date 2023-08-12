@@ -1,0 +1,31 @@
+﻿@using CuidarMe.Web.Models
+@{
+    UsuarioDaSessao usuario = ViewBag.Usuario;
+    ContadorNotificacaoViewModel alerta = ViewBag.Alerta;
+}
+@if (Request.IsAuthenticated && usuario != null)
+{
+    <ul class="navbar-nav navbar-right">
+        <li class="notification">
+            <a href="@Url.Action("Index","Notificacao")">
+                <i class="fa fa-bell-o fa-lg" aria-hidden="true"></i>
+                @*<i class="badge badge-danger fa-lg pull-left">@alerta.Total</i>*@
+            </a>
+        </li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-expanded="false">
+                <i class="fa fa-user"></i>&nbsp; Olá, @usuario.Nome<i class="caret"></i>
+            </a>
+            <div class="dropdown-menu">
+                <a class="dropdown-item" href="@Url.Action("ChangePassword", "Account")"><span class="fa fa-lock"></span> Alterar Senha</a>
+                <a class="dropdown-item" href="@Url.Action("Logout", "Account")"><span class="fa fa-power-off"></span> Sair</a>
+            </div>
+        </li>
+    </ul>
+}
+else
+{
+    <ul class="navbar-nav navbar-right">
+        <li><a href="@Url.Action("Login","Account")" role="button"><span class="fa fa-user"></span> Entrar</a></li>
+    </ul>
+}
