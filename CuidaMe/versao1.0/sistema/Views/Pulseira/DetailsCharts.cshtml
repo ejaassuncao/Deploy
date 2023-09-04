@@ -13,7 +13,6 @@
 
 <h2>@ViewBag.Title</h2>
 <div ng-controller="PulseiraDetailsController" ng-init="carregar(@Model)">
-
     <div class="row mb-2">
         <div class="col-md-12 mb-2">
             <div class="card">
@@ -48,7 +47,7 @@
             </div>
         </div>
 
-        <div class="col-xl-4">
+        <div class="col-xl-12">
             <div class="card">
                 <div class="card-header">
                     <h5 class="title-header-card">Monitoramento da Frequência Cardíaca</h5>
@@ -56,14 +55,13 @@
                 <div class="card-body">
                     <div id="graficoFrequenciaCardiaca" style="height: 450px"></div>
                     <p class="card-text">
-                        Mede o batimentos do coração do paciente por minutos<br />
                         <a href="" class="btn btn-link" ng-click="historico(pulseira.Id)"><i class="fa fa-history" aria-hidden="true"></i> &nbsp;Histórico</a>
                     </p>
                 </div>
             </div>
         </div>
 
-        <div class="col-xl-4">
+        <div class="col-xl-12">
             <div class="card">
                 <div class="card-header">
                     <h5 class="title-header-card">Monitoramento da Pressão</h5>
@@ -71,14 +69,13 @@
                 <div class="card-body">
                     <div id="graficoPressao" style="height: 450px"></div>
                     <p class="card-text">
-                        Mede pressão arterial do paciente<br />
                         <a href="" class="btn btn-link" ng-click="historico(pulseira.Id)"><i class="fa fa-history" aria-hidden="true"></i> &nbsp;Histórico</a>
                     </p>
                 </div>
             </div>
         </div>
 
-        <div class="col-xl-4">
+        <div class="col-xl-12">
             <div class="card">
                 <div class="card-header">
                     <h5 class="title-header-card">Monitoramento da Oxigenação</h5>
@@ -86,208 +83,183 @@
                 <div class="card-body">
                     <div id="graficoOxigenacao" style="height: 450px"></div>
                     <p class="card-text">
-                        Mede a oxigenação do sangue<br />
                         <a href="" class="btn btn-link" ng-click="historico(pulseira.Id)"><i class="fa fa-history" aria-hidden="true"></i> &nbsp;Histórico</a>
                     </p>
                 </div>
             </div>
         </div>
     </div>
-
     <div class="form-group">
         <a class="btn btn-outline-secondary" href="@Url.Action("Index")">Voltar</a>
     </div>
-
 </div>
 
 <script type="text/javascript">
+    var ROOT_PATH = 'http://localhost:5000/Scripts/echarts/aqi-beijing.json';
+
     var dom01 = document.getElementById('graficoFrequenciaCardiaca');
     var myChart01 = echarts.init(dom01, null, {
         renderer: 'canvas',
         useDirtyRect: false
     });
-
-    var option01 = {
-        series: [
-            {
-                type: 'gauge',
-                min: 0,
-                max: 300,              
-                axisLine: {
-                    lineStyle: {
-                        width: 30,
-                        color: [
-                            [0.17, '#67e0e3'],
-                            [0.66, '#37a2da'],
-                            [1, '#fd666d']
+    $.get(ROOT_PATH, function (data) {
+        myChart01.setOption(
+            (option = {
+                legend: {
+                    data: ['Frequência Cardíaca']
+                },
+                tooltip: {
+                    trigger: 'axis'
+                },
+                grid: {
+                    left: '1%',
+                    right: '1%',
+                    bottom: '10%'
+                },
+                xAxis: {
+                    data: data.map(function (item) {
+                        return item[0];
+                    })
+                },
+                yAxis: {},
+                toolbox: {
+                    right: 10,
+                    feature: {
+                        saveAsImage: {}
+                    }
+                },
+                dataZoom: [
+                    {
+                        start: 95,
+                        end: 100
+                    },
+                    {
+                        type: 'inside'
+                    }
+                ],
+                series: {
+                    name: 'Frequência Cardíaca',
+                    type: 'line',
+                    showSymbol: false,
+                    smooth: true,
+                    data: data.map(function (item) {
+                        return item[1];
+                    }),
+                    color: '#800080',
+                    markLine: {
+                        silent: true,
+                        lineStyle: {
+                            color: '#333'
+                        },
+                        data: [
+                            {
+                                yAxis: 50
+                            },
+                            {
+                                yAxis: 200
+                            }
                         ]
                     }
-                },
-                pointer: {
-                    itemStyle: {
-                        color: 'auto'
-                    }
-                },
-                axisTick: {
-                    distance: -30,
-                    length: 8,
-                    lineStyle: {
-                        color: '#fff',
-                        width: 2
-                    }
-                },
-                splitLine: {
-                    distance: -30,
-                    length: 30,
-                    lineStyle: {
-                        color: '#fff',
-                        width: 4
-                    }
-                },
-                axisLabel: {
-                    color: 'inherit',
-                    distance: 40,
-                    fontSize: 20
-                },
-                detail: {
-                    valueAnimation: true,
-                    formatter: '{value} bpm',
-                    color: 'inherit',
-                    fontSize: 20
-                },
-                data: [
-                    {
-                        value: 70
-                    }
-                ]
-            }
-        ]
-    };
-    setInterval(function () {
-        myChart01.setOption({
-            series: [
-                {
-                    data: [
-                        {
-                            value: +(Math.random() * 100).toFixed(0)
-                        }
-                    ]
                 }
-            ]
-        });
-    }, 3000);
-
-    if (option01 && typeof option01 === 'object') {
-        myChart01.setOption(option01);
-    }
-
+            })
+        );
+    });
     window.addEventListener('resize', myChart01.resize);
 
-    //-----------------------------------------------------------------------
+    //--------------------------------------------------------------------
     var dom02 = document.getElementById('graficoPressao');
     var myChart02 = echarts.init(dom02, null, {
         renderer: 'canvas',
         useDirtyRect: false
     });
-
-    var gaugeData = [
-        {
-            value: 10,
-            detail: {
-                formatter: '{value} Sistórica',
-                color: 'red',
-                offsetCenter: [0, 100],
-                borderColor: 'red',
-            },
-            pointer: {
-                itemStyle: {
-                    color: 'red'
-                }
-            },
-        },
-        {
-            value: 12,
-            detail: {
-                formatter: '{value} Diastórica',
-                color: 'blue',
-                borderColor: 'blue',
-                offsetCenter: [0, 130]
-            },
-            pointer: {
-                itemStyle: {
-                    color: 'blue'
-                }
-            },
-        }
-    ]
-
-    var option02 = {
-        series: [
-            {
-                type: 'gauge',  
-                min: 0,
-                max: 20,                
-                axisLine: {
-                    lineStyle: {
-                        width: 30,
-                        color: [
-                            [0.4, '#67e0e3'],
-                            [0.6, '#37a2da'],
-                            [1, '#fd666d']
+    $.get(ROOT_PATH, function (data) {
+        myChart02.setOption(
+            (option = {
+                tooltip: {
+                    trigger: 'axis'
+                },
+                legend: {
+                    data: ['Sistórica', 'Diastórica']
+                },
+                grid: {
+                    left: '1%',
+                    right: '1%',
+                    bottom: '10%'
+                },
+                xAxis: {
+                    data: data.map(function (item) {
+                        return item[0];
+                    })
+                },
+                yAxis: {},
+                toolbox: {
+                    right: 10,
+                    feature: {
+                        saveAsImage: {}
+                    }
+                },
+                dataZoom: [
+                    {
+                        start: 99,
+                        end: 100
+                    },
+                    {
+                        type: 'inside'
+                    }
+                ],
+                series: [{
+                    name: 'Sistórica',
+                    type: 'line',
+                    color: '#800080',
+                    showSymbol: false,
+                    smooth: true,
+                    data: data.map(function (item) {
+                        return item[1];
+                    }),
+                    markLine: {
+                        silent: true,
+                        lineStyle: {
+                            color: '#333'
+                        },
+                        data: [
+                            {
+                                yAxis: 50
+                            },
+                            {
+                                yAxis: 200
+                            }
                         ]
                     }
-                },               
-                axisTick: {
-                    distance: -30,
-                    length: 8,
-                    lineStyle: {
-                        color: '#fff',
-                        width: 2
-                    }
-                },
-                splitLine: {
-                    distance: -30,
-                    length: 30,
-                    lineStyle: {
-                        color: '#fff',
-                        width: 4
-                    }
-                },
-                axisLabel: {
-                    color: 'inherit',
-                    axisLine: 'innner',
-                    distance: 40,
-                    fontSize: 20
-                }, 
-                detail: {
-                    valueAnimation: true,
-                    borderRadius: 20,
-                    borderWidth: 1,
-                    fontSize: 14,
-                    width: 90,
-                    height: 14,
-                },
-                data: gaugeData
-            }
-        ]
-    }; 
 
-    if (option02 && typeof option02 === 'object') {
-        myChart02.setOption(option02);
-    }
-
-    setInterval(function () {
-        gaugeData[0].value = +(Math.random() * 100).toFixed(0);
-        gaugeData[1].value = +(Math.random() * 100).toFixed(0);     
-        myChart02.setOption({
-            series: [
+                },
                 {
-                    data: gaugeData
+                    name: 'Diastórica',
+                    type: 'line',
+                    color: '#BA55D3',
+                    showSymbol: false,
+                    smooth: true,
+                    data: data.map(function (item) {
+                        return item[1] * 2;
+                    }),
+                    markLine: {
+                        silent: true,
+                        lineStyle: {
+                            color: '#333'
+                        },
+                        data: [
+                            {
+                                yAxis: 50
+                            },
+                            {
+                                yAxis: 200
+                            }
+                        ]
+                    }
                 }
-            ]
-        });
-    }, 2000);
-
+                ],
+            })
+        );
+    });
     window.addEventListener('resize', myChart02.resize);
 
     //--------------------------------------------------------------------
@@ -298,81 +270,67 @@
         useDirtyRect: false
     });
 
-    var option03 = {
-        series: [
-            {
-                type: 'gauge',
-                min: 0,
-                max: 300,
-                axisLine: {
-                    lineStyle: {
-                        width: 30,
-                        color: [
-                            [0.17, '#67e0e3'],
-                            [0.66, '#37a2da'],
-                            [1, '#fd666d']
+    $.get(ROOT_PATH, function (data) {
+        myChart03.setOption(
+            (option = {
+                legend: {
+                    data: ['Saturação']
+                },
+                tooltip: {
+                    trigger: 'axis'
+                },
+                grid: {
+                    left: '1%',
+                    right: '1%',
+                    bottom: '10%'
+                },
+                xAxis: {
+                    data: data.map(function (item) {
+                        return item[0];
+                    })
+                },
+                yAxis: {},
+                toolbox: {
+                    right: 10,
+                    feature: {
+                        saveAsImage: {}
+                    }
+                },
+                dataZoom: [
+                    {
+                        start: 95,
+                        end: 100
+                    },
+                    {
+                        type: 'inside'
+                    }
+                ],
+                series: {
+                    name: 'Saturação',
+                    type: 'line',
+                    color: '#800080',
+                    showSymbol: false,
+                    smooth: true,
+                    data: data.map(function (item) {
+                        return item[1];
+                    }),
+                    markLine: {
+                        silent: true,
+                        lineStyle: {
+                            color: '#333'
+                        },
+                        data: [
+                            {
+                                yAxis: 50
+                            },
+                            {
+                                yAxis: 200
+                            }
                         ]
                     }
-                },
-                pointer: {
-                    itemStyle: {
-                        color: 'auto'
-                    }
-                },
-                axisTick: {
-                    distance: -30,
-                    length: 8,
-                    lineStyle: {
-                        color: '#fff',
-                        width: 2
-                    }
-                },
-                splitLine: {
-                    distance: -30,
-                    length: 30,
-                    lineStyle: {
-                        color: '#fff',
-                        width: 4
-                    }
-                },
-                axisLabel: {
-                    color: 'inherit',
-                    distance: 40,
-                    fontSize: 20
-                },
-                detail: {
-                    valueAnimation: true,
-                    formatter: '{value}%',
-                    color: 'inherit',
-                    fontSize: 20
-                },
-                data: [
-                    {
-                        value: 70
-                    }
-                ]
-            }
-        ]
-    };
-    setInterval(function () {
-        myChart03.setOption({
-            series: [
-                {
-                    data: [
-                        {
-                            value: +(Math.random() * 100).toFixed(0)
-                        }
-                    ]
                 }
-            ]
-        });
-    }, 3000);
-
-    if (option03 && typeof option03 === 'object') {
-        myChart03.setOption(option03);
-    }
-
-    window.addEventListener('resize', resize);
-
+            })
+        );
+    });
+    window.addEventListener('resize', myChart03.resize);
 </script>
-

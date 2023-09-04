@@ -27,12 +27,12 @@
             $scope.pulseira.Telefones.remove(telefone);
         };
 
-        $scope.cancelar = function () {            
+        $scope.cancelar = function () {
             $pulseiras.redirect();
         };
     });
 
-    app.controller("ListPulseiraController", function ($scope, $enums, $messages, $pulseiras) {
+    app.controller("ListPulseiraController", function ($scope, $enums, $messages, $pulseiras, $comando, $timeout) {
 
         $enums.modosDeTrabalho(r => $scope.modosDeTrabalho = r);
 
@@ -42,11 +42,11 @@
             });
         };
 
-        $scope.editar = function (pulseira) {       
+        $scope.editar = function (pulseira) {
             $pulseiras.redirect("Create", pulseira.Id);
         };
 
-        $scope.visualizar = function (id) {                  
+        $scope.visualizar = function (id) {
             $pulseiras.redirect("Details", id);
         };
 
@@ -82,12 +82,94 @@
                 $pulseiras.remove(pulseira.Id, $scope.listar);
             });
         };
+
+        //***Novos comandos***
+        $scope.comando = { cmd: '', };      
+
+        $scope.abrirDialogEnviarComando = function (pulseira) {
+            $scope.filtrosComandos = { Predicate: "Nome", Reverse: false, currentPage: 1, itemsPerPage: 100 };
+            $comando.list($scope.filtrosComandos, function (r) {
+                $scope.comandos = r;
+            });
+
+            $scope.pulseiraSelecionada = pulseira;
+            $scope.aberta = true;
+        };
+
+        $scope.comandoSelecionado = function () {
+            if ($scope.comando.cmd == null) return;
+            $scope.montaComando = $scope.comando.cmd.replace("{IMEI}", $scope.pulseiraSelecionada.Imei);
+            var variaveis = $scope.montaComando.split('{');
+            $scope.campos = [];
+            if (variaveis.length > 1) {
+                for (var index in variaveis) {
+                    if (index > 0)
+                        $scope.campos.push(variaveis[index].substr(0, variaveis[index].indexOf('}')))
+                }
+            }
+
+            $scope.divMsgRetorno = true;
+        }
+
+        $scope.EnviarComando = function () {
+            $scope.msgRetorno = '';
+            $scope.msgValidacao = false;
+            if ($scope.comando.cmd.length == 0) {
+                $scope.msgValidacao = true;
+                return
+            }
+
+            var elementos = $("input[name='campo']");
+            for (index = 0; index < elementos.length; index++) {
+                var el = elementos[index];
+                var lbl = $(el).prop('placeholder');
+                var value = $(el).val();
+                $scope.montaComando = $scope.montaComando.replace("{" + lbl + "}", value);
+            }
+            $scope.enviar = true;
+            $scope.divMsgRetorno = true
+
+            var dados = {
+                Pulseira: $scope.pulseiraSelecionada,
+                Comando: $scope.montaComando
+            };
+
+            $comando.enviarComando(dados, function (r) {
+                $scope.enviar = false;
+                $scope.msgRetorno = `- ${r.Message}<br/>`;
+                if (r.Status == "Sucesso")
+                    checkLog(r);
+            });
+        }
+
+        $scope.fecharModal = function () {
+            $scope.comandos = {};
+            $scope.campos = [];
+            $scope.montaComando = "";
+            $scope.pulseiraSelecionada = {};
+            $scope.aberta = false;
+            $scope.enviar = false;
+            $scope.divMsgRetorno = false;
+            $scope.msgRetorno = '';
+        }
+
+        function checkLog(param) {
+            $comando.getLog(param, function (r) {
+                if (r.Status != 'FimLog') {
+                    console.log(r.Message);
+                    $scope.msgRetorno = r.Message;
+                    $timeout(function () {
+                        checkLog(r);
+                    }, 3000)
+                }
+            });
+        }
     });
 
     app.controller("PulseiraDetailsController", function ($scope, $pulseiras, $monitoramentos, $localizacoes) {
 
         $scope.carregar = function (id) {
-            
+
             $scope.idPulseira = id;
 
             $scope.filtrosDeLocalizacao = {
@@ -104,14 +186,14 @@
                 $scope.pulseira = pulseira;
             });
 
-            
+
             $scope.listarMonitoramento();
             $scope.listarLocalizacao();
         };
 
         $scope.listarMonitoramento = function () {
             $scope.filtrosDeMonitoramento.IdPulseira = $scope.idPulseira;
-            
+
             $monitoramentos.list($scope.filtrosDeMonitoramento, function (r) {
                 $scope.monitoramentos = r;
             });
@@ -125,9 +207,8 @@
             });
         };
 
-        $scope.historico = function (id) {           
+        $scope.historico = function (id) {
             $pulseiras.redirect("Details", id);
         }
-
     });
 })();

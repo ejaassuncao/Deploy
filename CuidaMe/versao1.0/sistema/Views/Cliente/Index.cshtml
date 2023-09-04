@@ -28,9 +28,10 @@
             {
                 <button new="@Url.Action("Create")"></button>
             }
-                <button edit="editar(item)"></button>
-                <button remove="excluir(item)"></button>
-            </buttons>
+            <button edit="editar(item)"></button>
+            <button remove="excluir(item)"></button>
+            <button ng-click="copiarChave(item.Chave)" class="btn btn-outline-dark btn-sm fa fa-copy" title="Copiar chave"></button>
+        </buttons>
     </datatable>
 
     <pagination filters="filtros" refresh="listar()"></pagination>

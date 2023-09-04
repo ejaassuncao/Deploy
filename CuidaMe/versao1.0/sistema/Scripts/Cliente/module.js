@@ -103,5 +103,16 @@
                 $clientes.remove(cliente.Id, $scope.listar);
             });
         };
+
+        $scope.copiarChave = function (textoCopiado) {
+            navigator.clipboard.writeText(textoCopiado).then(
+                () => {
+                    console.log("sucesso", textoCopiado)
+                },
+                () => {
+                    console.log("erro", textoCopiado)
+                },
+            );
+        }
     });
 })();

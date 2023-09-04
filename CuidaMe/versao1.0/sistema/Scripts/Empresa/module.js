@@ -9,8 +9,8 @@
                     Clientes: []
                 };
             } else {
-                $empresas.get(id, empresa => $scope.empresa = empresa);                
-            }            
+                $empresas.get(id, empresa => $scope.empresa = empresa);
+            }
         };
 
         $scope.salvar = function () {
@@ -19,14 +19,14 @@
                 return;
             }
 
-            $scope.empresa.Clientes.map(function (cliente) {                
+            $scope.empresa.Clientes.map(function (cliente) {
                 return cliente;
             });
 
             $empresas.save($scope.empresa, $scope.cancelar);
         };
 
-        $scope.cancelar = function () {          
+        $scope.cancelar = function () {
             $empresas.redirect();
         };
 
@@ -53,7 +53,7 @@
         };
 
         $scope.abrirDialogDeCliente = function () {
-            $scope.cliente = {};           
+            $scope.cliente = {};
             $scope.aberta = true;
         };
 
@@ -108,5 +108,16 @@
                 $empresas.remove(empresa.Id, $scope.listar);
             });
         };
+
+        $scope.copiarChave = function (textoCopiado) {
+            navigator.clipboard.writeText(textoCopiado).then(
+                () => {
+                    console.log("sucesso", textoCopiado)
+                },
+                () => {
+                    console.log("erro", textoCopiado)
+                },
+            );
+        }
     });
 })();

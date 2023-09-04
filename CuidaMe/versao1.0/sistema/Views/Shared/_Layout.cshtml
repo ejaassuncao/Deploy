@@ -32,42 +32,46 @@
                         <a class="nav-link" href="@Url.Action("Index", "Pulseira")">Pulseira</a>
                     </li>
                 }
+                else if (ViewBag.Usuario.Master == CuidarMe.Domain.Models.TipoUsuario.Empresa)
+                {
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="@Url.Action("Index", "Empresa")">Empresa</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="@Url.Action("Index", "Cliente")">Cliente</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="@Url.Action("Index", "Pulseira")">Pulseira</a>
+                    </li>
+                }
                 else
                 {
-                    if (ViewBag.Usuario.Master == CuidarMe.Domain.Models.TipoUsuario.Empresa)
-                    {
-                        <li class="nav-item dropdown">
-                            <a class="nav-link" href="@Url.Action("Index", "Empresa")">Empresa</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link" href="@Url.Action("Index", "Cliente")">Cliente</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link" href="@Url.Action("Index", "Pulseira")">Pulseira</a>
-                        </li>
-                    }
-                    else
-                    {
-                        <li class="nav-item dropdown">
-                            <a class="nav-link" href="@Url.Action("Index", "Empresa")">Empresa</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link" href="@Url.Action("Index", "Usuario")">Usuário</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link" href="@Url.Action("Index", "Cliente")">Cliente</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link" href="@Url.Action("Index", "Pulseira")">Pulseira</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link" href="@Url.Action("Index", "Configuracao")">Configuração geral</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link" href="@Url.Action("Index", "ServerLog")">Logs</a>
-                        </li>
-                    }
+                    //***Administrador**
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="@Url.Action("Index", "Empresa")">Empresa</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="@Url.Action("Index", "Usuario")">Usuário</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="@Url.Action("Index", "Cliente")">Cliente</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="@Url.Action("Index", "Pulseira")">Pulseira</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="@Url.Action("Index", "Configuracao")">Configuração geral</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="@Url.Action("Index", "Comando")">Comandos</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="@Url.Action("Index", "ServerLog")">Logs</a>
+                    </li>
                 }
+
+
             </ul>
             @Html.Partial("_LoginPartial")
         </div>

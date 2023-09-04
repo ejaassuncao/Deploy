@@ -126,3 +126,7 @@ p.card-text {
         width: 24.5% !important;
     }
 }
+
+.datatable .datatable-buttons {
+    width: 190px;
+}

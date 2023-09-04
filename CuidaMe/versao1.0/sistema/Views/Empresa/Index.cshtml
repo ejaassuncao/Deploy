@@ -19,7 +19,7 @@
         </div>
     </div>
 
-    <datatable items="item in empresas" filters="filtros" refresh="listar()">
+    <datatable items="item in empresas" filters="filtros" refresh="listar()">      
         <column orderable get="item.Nome" initial>Nome da Empresa</column>
         <column orderable get="item.Documento" initial>Documento</column>
         <column orderable get="item.Email">E-mail</column>
@@ -28,6 +28,7 @@
             <button new="@Url.Action("Create")"></button>
             <button edit="editar(item)"></button>
             <button remove="excluir(item)"></button>
+            <button ng-click="copiarChave(item.Chave)" class="btn btn-outline-dark btn-sm fa fa-copy" title="Copiar chave"></button>
         </buttons>
     </datatable>
 

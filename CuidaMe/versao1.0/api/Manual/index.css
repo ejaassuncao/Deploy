@@ -1,0 +1,130 @@
+body {
+    background-color: white;
+}
+
+.table th, .table td {
+    padding: 0.3rem !important;
+}
+
+.card {
+    border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.tabela-urls tr > td:first-child {
+    width: 20%;
+}
+
+.recurso table tr > td:first-child {
+    width: 30%;
+}
+
+.recurso table,
+.recurso .recurso-cabecalhos p:last-of-type,
+.recurso .recurso-parametros p:last-of-type,
+.declaracao-de-objeto table {
+    margin-bottom: 0;
+}
+
+table tr:first-of-type th,
+table tr:first-of-type td {
+    border-top: none;
+}
+
+.recurso-nome {
+    display: block;
+    margin-bottom: 5px;
+}
+
+    .recurso-nome + .recurso-descricao {
+        margin-top: -5px;
+    }
+
+.recurso-descricao,
+.recurso-observacao {
+    font-size: 0.95em;
+}
+
+a[class*=ancora-] {
+    text-decoration: none;
+}
+
+a.ancora-objeto {
+    color: #4aad97;
+}
+
+recurso,
+declaracao-de-objeto,
+declaracao-de-enumerador,
+declaracao-de-tipo-de-dado {
+    display: block;
+}
+
+    recurso + recurso,
+    declaracao-de-objeto + declaracao-de-objeto,
+    declaracao-de-enumerador + declaracao-de-enumerador,
+    declaracao-de-tipo-de-dado + declaracao-de-tipo-de-dado {
+        margin-top: 20px;
+    }
+
+.declaracao-de-objeto-nome {
+    color: #4aad97;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.declaracao-de-tipo-de-dado-nome {
+    color: #008;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.declaracao-de-enumerador table tr > td:first-child {
+    width: 10%;
+}
+
+.declaracao-de-objetos-campos {
+    margin-top: 30px;
+    font-size: 0.95em;
+}
+
+pre.code-markup {
+    margin-bottom: 0;
+}
+
+a.ancora-tipo-de-dado .pln,
+.typ {
+    color: #9fd0c5 !important;
+}
+
+.divisor {
+    margin: 20px auto;
+    width: 100px;
+    border-color: #e6e5e5;
+}
+
+    .divisor:after {
+        content: '///';
+        position: absolute;
+        margin-top: -8px;
+        margin-left: 46px;
+        font-size: 9px;
+        color: #e6e5e5;
+        font-weight: 600;
+    }
+
+.link {
+    font-size: 0.95em;
+    color: darkgrey
+}
+
+.navegacao-topo {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+    .navegacao-topo:hover:before {
+        color: #377768;
+    }
