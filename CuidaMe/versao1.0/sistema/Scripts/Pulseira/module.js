@@ -93,7 +93,7 @@
             });
 
             $scope.pulseiraSelecionada = pulseira;
-            $scope.aberta = true;
+            $scope.abertaNew = true;
         };
 
         $scope.comandoSelecionado = function () {
@@ -147,7 +147,7 @@
             $scope.campos = [];
             $scope.montaComando = "";
             $scope.pulseiraSelecionada = {};
-            $scope.aberta = false;
+            $scope.abertaNew = false;
             $scope.enviar = false;
             $scope.divMsgRetorno = false;
             $scope.msgRetorno = '';

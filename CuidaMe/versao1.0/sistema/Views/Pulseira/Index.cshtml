@@ -31,8 +31,8 @@
         <buttons>
             <button icon-fa="eye" class="btn btn-sm btn-dark" ng-click="visualizar(item.Id)"></button>
             <button icon-fa="pie-chart" class="btn btn-sm btn-dark" ng-click="visualizarCharts(item.Id)"></button>
-            @*<button icon-fa="cog" ng-click="abrirDialog(item)"></button>*@
-            <button icon-fa="cog" ng-click="abrirDialogEnviarComando(item)"></button>
+            <button icon-fa="cog" ng-click="abrirDialog(item)"></button>
+            <button icon-fa="exchange" ng-click="abrirDialogEnviarComando(item)"></button>
             <button edit="editar(item)"></button>
             <button remove="excluir(item)"></button>
         </buttons>
@@ -41,7 +41,7 @@
     <pagination filters="filtros" refresh="listar()"></pagination>
 
 
-    @*<dialog is-open="aberta" static>
+    <dialog is-open="aberta" static>
             <dialog-form>
                 <validation submit="salvarConfiguracao()"></validation>
 
@@ -68,9 +68,9 @@
                 </dialog-footer>
 
             </dialog-form>
-        </dialog>*@
+        </dialog>
 
-    <dialog is-open="aberta" static class="modal-lg">
+    <dialog is-open="abertaNew" static class="modal-lg">
         <dialog-form>
             <validation submit="EnviarComando()"></validation>
 
