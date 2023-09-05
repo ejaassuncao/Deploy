@@ -95,7 +95,7 @@
 </div>
 
 <script type="text/javascript">
-    var ROOT_PATH = 'http://localhost:5000/Scripts/echarts/aqi-beijing.json';
+    var ROOT_PATH = '@Url.Content("~/Scripts/echarts/aqi-beijing.json")';
 
     var dom01 = document.getElementById('graficoFrequenciaCardiaca');
     var myChart01 = echarts.init(dom01, null, {
