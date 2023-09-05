@@ -1,0 +1,196 @@
+Aguarde, testando a conexão com a API...
+Started...
+186.201.164.203:5889 connected 
+IpPort: 186.201.164.203:5889 (Imei: 356221496222738) => Received: IWAP00356221496222738#
+IpPort: 186.201.164.203:5889 (Imei: 356221496222738) => Response: IWBP0020230905045906,-3#
+
+
+177.99.191.227:61894 connected 
+IpPort: 177.99.191.227:61894 (Imei: 356221499349262) => Received: IWAP00356221499349262#
+IpPort: 177.99.191.227:61894 (Imei: 356221499349262) => Response: IWBP0020230905045907,-3#
+
+
+177.99.191.227:54233 connected 
+IpPort: 177.99.191.227:54233 (Imei: 356221498742378) => Received: IWAP00356221498742378#
+IpPort: 177.99.191.227:54233 (Imei: 356221498742378) => Response: IWBP0020230905045909,-3#
+
+
+179.175.176.130:7715 connected 
+IpPort: 179.175.176.130:7715 (Imei: 861265060015556) => Received: IWAP00861265060015556#
+IpPort: 179.175.176.130:7715 (Imei: 861265060015556) => Response: IWBP0020230905045910,-3#
+
+
+IpPort: 179.175.176.130:7715 (Imei: 861265060015556) => Received: IWAP03,10000005700003,00000,00#
+IpPort: 179.175.176.130:7715 (Imei: 861265060015556) => Response: IWBP03#
+
+
+186.201.164.203:49359 connected 
+IpPort: 186.201.164.203:49359 (Imei: 356221499269721) => Received: IWAP00356221499269721#
+IpPort: 186.201.164.203:49359 (Imei: 356221499269721) => Response: IWBP0020230905045913,-3#
+
+
+186.201.164.203:22026 connected 
+IpPort: 186.201.164.203:22026 (Imei: 861265060052773) => Received: IWAP00861265060052773#
+IpPort: 186.201.164.203:22026 (Imei: 861265060052773) => Response: IWBP0020230905045917,-3#
+
+
+IpPort: 186.201.164.203:22026 (Imei: 861265060052773) => Received: IWAP03,10000005800008,01694,00#
+IpPort: 186.201.164.203:22026 (Imei: 861265060052773) => Response: IWBP03#
+
+
+179.242.225.215:14860 connected 
+IpPort: 179.242.225.215:14860 (Imei: 356221499800835) => Received: IWAP00356221499800835#
+IpPort: 179.242.225.215:14860 (Imei: 356221499800835) => Response: IWBP0020230905045924,-3#
+
+
+177.99.191.227:53397 connected 
+IpPort: 177.99.191.227:53397 (Imei: 356221496216235) => Received: IWAP00356221496216235#
+IpPort: 177.99.191.227:53397 (Imei: 356221496216235) => Response: IWBP0020230905045925,-3#
+
+
+IpPort: 179.175.176.130:7715 (Imei: 861265060015556) => Received: IWAP01230905A2325.1393S05154.3165W000.0045946303.6410001205700003,724,6,34444,257282325,a|48-22-54-a5-f9-ae|89&a|b0-be-76-43-bb-0d|83&a|84-0b-bb-71-fe-e0|66&a|98-7e-ca-dc-a0-df|66#
+IpPort: 179.175.176.130:7715 (Imei: 861265060015556) => Response: IWBP01#
+
+
+IpPort: 177.99.191.227:61894 (Imei: 356221499349262) => Received: IWAP01230905V0000.0000N00000.0000E000.1020005323.8703700001800000,724,5,2131,20245,a|84-01-12-98-07-f9|69&a|d8-c6-78-0d-85-38|86&a|18-6a-81-d4-72-e2|87#
+IpPort: 177.99.191.227:61894 (Imei: 356221499349262) => Response: IWBP01#
+
+
+IpPort: 177.99.191.227:54233 (Imei: 356221498742378) => Received: IWAP01230905V0000.0000N00000.0000E000.1020006323.8706600004200000,724,4,13141,13406,a|c8-5d-38-77-c4-40|44&a|32-23-64-cc-c0-89|53&a|30-23-64-8c-c0-89|53#
+IpPort: 177.99.191.227:54233 (Imei: 356221498742378) => Response: IWBP01#
+
+
+IpPort: 179.242.225.215:14860 (Imei: 356221499800835) => Received: IWAPHP,73,126,70,99,0.0,36.4#
+IpPort: 179.242.225.215:14860 (Imei: 356221499800835) => Response: IWBPHP#
+
+
+IpPort: 186.201.164.203:49359 (Imei: 356221499269721) => Received: IWAP01230905A2325.8745S05156.2614W000.1020011323.8710000905300000,724,4,21444,18184,a|e8-20-e2-39-67-ca|74&a|66-db-f7-4f-e4-89|94#
+IpPort: 186.201.164.203:49359 (Imei: 356221499269721) => Response: IWBP01#
+
+
+IpPort: 186.201.164.203:5889 (Imei: 356221496222738) => Received: IWAP01230905A2311.1088S04653.9019W000.1020023323.8708800503300000,724,5,11111,20324,a|d6-c6-78-80-c2-6b|69&a|82-2a-a8-73-44-55|70&a|d8-c6-78-80-c2-6b|70#
+IpPort: 186.201.164.203:5889 (Imei: 356221496222738) => Response: IWBP01#
+
+
+IpPort: 186.201.164.203:22026 => Error (Linha:    at System.DateTimeParse.ParseExact(String s, String format, DateTimeFormatInfo dtfi, DateTimeStyles style)
+   at CuidarMe.ServerTCP.Model.CommandSmartWatch.<CapturarLocalizacao>d__11.MoveNext() in C:\DES\EWA\Cuide-me\src\CuidarMe.ServerTCP\Model\CommandSmartWatch.cs:line 404
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at CuidarMe.ServerTCP.Model.CommandSmartWatch.<Execute>d__2.MoveNext() in C:\DES\EWA\Cuide-me\src\CuidarMe.ServerTCP\Model\CommandSmartWatch.cs:line 41
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at CuidarMe.ServerTCP.Model.SmartWatch.<DefinirComando>d__3.MoveNext() in C:\DES\EWA\Cuide-me\src\CuidarMe.ServerTCP\Model\SmartWatch.cs:line 25
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   at CuidarMe.ServerTCP.FrmServer.<>c__DisplayClass7_0.<<Events_DataReceived>b__0>d.MoveNext() in C:\DES\EWA\Cuide-me\src\CuidarMe.ServerTCP\FrmServerTCP.cs:line 95):
+ String was not recognized as a valid DateTime. 
+  
+
+
+IpPort: 186.201.164.203:49359 (Imei: 356221499269721) => Received: IWAP10230905V0000.0000N00000.0000E000.1020042323.8710000005400000,724,4,21444,18184,03,zh-cn,00,a|e8-20-e2-39-67-ca|73&a|a4-56-cc-e6-39-aa|93&a|78-45-58-74-37-f5|93#
+IpPort: 186.201.164.203:49359 (Imei: 356221499269721) => Response: IWBP10#
+
+
+IpPort: 179.175.176.130:7715 (Imei: 861265060015556) => Received: IWAP01230905A2325.1436S05154.3136W000.8050047303.6410001205700003,724,6,34444,257282325,a|48-22-54-a5-f9-ae|88&a|b0-be-76-43-bb-0d|83&a|06-25-e0-c7-9f-a9|65&a|98-7e-ca-dc-a0-df|64#
+IpPort: 179.175.176.130:7715 (Imei: 861265060015556) => Response: IWBP01#
+
+
+IpPort: 177.99.191.227:61894 (Imei: 356221499349262) => Received: IWAP01230905V0000.0000N00000.0000E000.1020105323.8703400001600000,724,5,2131,20245,a|84-01-12-98-07-f9|70&a|18-6a-81-d4-72-e2|87&a|34-53-d2-a9-3c-7a|87#
+IpPort: 177.99.191.227:61894 (Imei: 356221499349262) => Response: IWBP01#
+
+
+IpPort: 177.99.191.227:54233 (Imei: 356221498742378) => Received: IWAP01230905V0000.0000N00000.0000E000.1020106323.8706500004500000,724,4,13141,13406,a|c8-5d-38-77-c4-40|44&a|32-23-64-cc-c0-89|53&a|30-23-64-8c-c0-89|53#
+IpPort: 177.99.191.227:54233 (Imei: 356221498742378) => Response: IWBP01#
+
+
+179.242.246.67:49759 connected 
+IpPort: 179.242.246.67:49759 (Imei: 356221494448628) => Received: IWAP00356221494448628#
+IpPort: 179.242.246.67:49759 (Imei: 356221494448628) => Response: IWBP0020230905050130,-3#
+
+
+IpPort: 179.175.176.130:7715 (Imei: 861265060015556) => Received: IWAP01230905A2325.1441S05154.3127W000.7050147303.6410001205700003,724,6,34444,257282325,a|48-22-54-a5-f9-ae|88&a|b0-be-76-43-bb-0d|84&a|84-0b-bb-71-fe-e0|66&a|98-7e-ca-dc-a0-df|66#
+IpPort: 179.175.176.130:7715 (Imei: 861265060015556) => Response: IWBP01#
+
+
+186.201.164.203:49359 disconnected 
+186.201.164.203:3291 connected 
+IpPort: 177.99.191.227:61894 (Imei: 356221499349262) => Received: IWAP03,03700001600003,000000,00#
+IpPort: 177.99.191.227:61894 (Imei: 356221499349262) => Response: IWBP03#
+
+
+IpPort: 177.99.191.227:54233 (Imei: 356221498742378) => Received: IWAP03,06600004600003,000000,00#
+IpPort: 177.99.191.227:54233 (Imei: 356221498742378) => Response: IWBP03#
+
+
+IpPort: 186.201.164.203:3291 (Imei: 356221499269721) => Received: IWAP00356221499269721#
+IpPort: 186.201.164.203:3291 (Imei: 356221499269721) => Response: IWBP0020230905050223,-3#
+
+
+IpPort: 177.99.191.227:54233 (Imei: 356221498742378) => Received: IWAP01230905V0000.0000N00000.0000E000.1020206323.8706600004600000,724,4,13141,13406,a|c8-5d-38-77-c4-40|44&a|32-23-64-cc-c0-89|53&a|30-23-64-8c-c0-89|53#
+IpPort: 177.99.191.227:54233 (Imei: 356221498742378) => Response: IWBP01#
+
+
+IpPort: 177.99.191.227:61894 (Imei: 356221499349262) => Received: IWAP01230905V0000.0000N00000.0000E000.1020205323.8703700001600000,724,5,2131,20245,a|84-01-12-98-07-f9|71&a|d8-c6-78-0d-85-38|86&a|f0-68-65-d4-ec-d9|88#
+IpPort: 177.99.191.227:61894 (Imei: 356221499349262) => Response: IWBP01#
+
+
+IpPort: 186.201.164.203:5889 => Error (Linha:    at CuidarMe.ServerTCP.Services.RestService`1.<Post>d__8.MoveNext() in C:\DES\EWA\Cuide-me\src\CuidarMe.ServerTCP\Services\RestService.cs:line 33
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at CuidarMe.ServerTCP.Model.CommandSmartWatch.<ReceberLog>d__13.MoveNext() in C:\DES\EWA\Cuide-me\src\CuidarMe.ServerTCP\Model\CommandSmartWatch.cs:line 538
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at CuidarMe.ServerTCP.Model.CommandSmartWatch.<Execute>d__2.MoveNext() in C:\DES\EWA\Cuide-me\src\CuidarMe.ServerTCP\Model\CommandSmartWatch.cs:line 32
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at CuidarMe.ServerTCP.Model.SmartWatch.<DefinirComando>d__3.MoveNext() in C:\DES\EWA\Cuide-me\src\CuidarMe.ServerTCP\Model\SmartWatch.cs:line 25
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter.ValidateEnd(Task task)
+   at CuidarMe.ServerTCP.FrmServer.<>c__DisplayClass7_0.<<Events_DataReceived>b__0>d.MoveNext() in C:\DES\EWA\Cuide-me\src\CuidarMe.ServerTCP\FrmServerTCP.cs:line 95):
+ Erro InternalServerError: Não foi possivel conectar a API (Url:https://api.cuideme.care/ServerLogs). Verifique o caminho da mesma 
+  
+
+
+IpPort: 179.242.225.215:14860 (Imei: 356221499800835) => Received: IWAP03,09300003800001,000000,00#
+IpPort: 179.242.225.215:14860 (Imei: 356221499800835) => Response: IWBP03#
+
+
+186.201.164.203:48145 connected 
+IpPort: 186.201.164.203:48145 (Imei: 356221496164595) => Received: IWAP00356221496164595#
+IpPort: 186.201.164.203:48145 (Imei: 356221496164595) => Response: IWBP0020230905050225,-3#
+
+
+186.201.164.203:22473 connected 
+IpPort: 186.201.164.203:22473 (Imei: 356221499755448) => Received: IWAP00356221499755448#
+IpPort: 186.201.164.203:22473 (Imei: 356221499755448) => Response: IWBP0020230905050227,-3#
+
+
+IpPort: 177.99.191.227:53397 (Imei: 356221496216235) => Received: IWAP03,10000010000001,000000,00#
+IpPort: 177.99.191.227:53397 (Imei: 356221496216235) => Response: IWBP03#
+
+
+IpPort: 179.175.176.130:7715 (Imei: 861265060015556) => Received: IWAP01230905A2325.1460S05154.3112W000.0050247303.6410001205700003,724,6,34444,257282325,a|48-22-54-a5-f9-ae|88&a|b0-be-76-43-bb-0d|84&a|04-25-e0-b7-9f-a9|66&a|06-25-e0-c7-9f-a9|65#
+IpPort: 179.175.176.130:7715 (Imei: 861265060015556) => Response: IWBP01#
+
+
+IpPort: 177.99.191.227:61894 (Imei: 356221499349262) => Received: IWAP01230905V0000.0000N00000.0000E000.1020305323.8703000001500000,724,5,2131,20245,a|84-01-12-98-07-f9|73&a|34-53-d2-a9-3c-7a|87&a|f0-68-65-d4-ec-d9|88#
+IpPort: 177.99.191.227:61894 (Imei: 356221499349262) => Response: IWBP01#
+
+
+IpPort: 177.99.191.227:54233 (Imei: 356221498742378) => Received: IWAP01230905V0000.0000N00000.0000E000.1020306323.8706500004300000,724,4,13141,13406,a|c8-5d-38-77-c4-40|44&a|30-23-64-8c-c0-89|53&a|b0-5c-da-6c-f1-0f|53#
+IpPort: 177.99.191.227:54233 (Imei: 356221498742378) => Response: IWBP01#
+
+
+IpPort: 186.201.164.203:3291 (Imei: 356221499269721) => Received: IWAP01230905A2325.9057S05156.1965W000.1020311323.8710000705500000,724,4,21444,18184,a|e8-20-e2-39-67-ca|73&a|7e-45-58-74-37-f5|89&a|78-45-58-74-37-f5|91#
+IpPort: 186.201.164.203:3291 (Imei: 356221499269721) => Response: IWBP01#
+
+
