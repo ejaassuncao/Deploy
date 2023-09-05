@@ -151,6 +151,7 @@
             $scope.enviar = false;
             $scope.divMsgRetorno = false;
             $scope.msgRetorno = '';
+            $scope.listar();
         }
 
         function checkLog(param) {
