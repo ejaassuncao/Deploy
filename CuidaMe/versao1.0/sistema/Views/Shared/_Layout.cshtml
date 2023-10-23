@@ -1,0 +1,92 @@
+﻿@using CuidarMe.Web.Models
+@{
+    const string appName = "Cuide Me";
+    var title = ViewBag.Title;
+
+    UsuarioDaSessao usuario = ViewBag.Usuario;
+}
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="@(Request.Url.GetLeftPart(UriPartial.Authority) + Url.Content("~"))">
+    <title>@appName @(!string.IsNullOrWhiteSpace(title) ? " - " + title : "")</title>
+    <link rel="shortcut icon" href="~/Images/favicon.ico">
+    @Styles.Render("~/Content/admin")
+    @Scripts.Render("~/bundles/admin")
+    @RenderSection("scripts", required: false)
+</head>
+<body>
+    <loading></loading>
+    <nav class="navbar navbar-dark bg-dark navbar-expand-lg fixed-top">
+        @Html.ActionLink(appName, "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                @if (ViewBag.Usuario.Master == CuidarMe.Domain.Models.TipoUsuario.Cliente)
+                {
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="@Url.Action("Index", "Pulseira")">Pulseira</a>
+                    </li>
+                }
+                else if (ViewBag.Usuario.Master == CuidarMe.Domain.Models.TipoUsuario.Empresa)
+                {
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="@Url.Action("Index", "Empresa")">Empresa</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="@Url.Action("Index", "Cliente")">Cliente</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="@Url.Action("Index", "Pulseira")">Pulseira</a>
+                    </li>
+                }
+                else
+                {
+                    //***Administrador**
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="@Url.Action("Index", "Empresa")">Empresa</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="@Url.Action("Index", "Usuario")">Usuário</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="@Url.Action("Index", "Cliente")">Cliente</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="@Url.Action("Index", "Pulseira")">Pulseira</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="@Url.Action("Index", "Configuracao")">Configuração geral</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="@Url.Action("Index", "Comando")">Comandos</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="@Url.Action("Index", "ServerLog")">Logs</a>
+                    </li>
+                }
+
+
+            </ul>
+            @Html.Partial("_LoginPartial")
+        </div>
+    </nav>
+
+    <main class="container-fluid mt-3">
+        <br /><br />
+        @RenderBody()
+        <br />
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p class="text-muted m-0">&copy; @DateTime.Now.Year - @appName</p>
+        </div>
+    </footer>
+</body>
+</html>

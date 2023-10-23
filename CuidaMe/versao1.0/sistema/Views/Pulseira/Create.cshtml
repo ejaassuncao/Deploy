@@ -1,0 +1,31 @@
+﻿@model int
+@{
+    ViewBag.Title = "Pulseira";
+}
+
+@section scripts {
+    <script src="@Url.Content("~/Scripts/Pulseira/service.js")"></script>
+    <script src="@Url.Content("~/Scripts/Pulseira/module.js")"></script>
+}
+
+<h2>@ViewBag.Title</h2>
+<div ng-controller="PulseiraController" ng-init="carregar(@Model)">
+    <form>
+        <validation submit="salvar()"></validation>
+
+        <div class="form-group">
+            <label>Imei</label>
+            <input type="text" class="form-control" ng-model="pulseira.Imei" readonly/>
+        </div>
+
+        <div class="form-group">
+            <label>Telefone</label>
+            <input type="text" class="form-control" ng-model="pulseira.Telefone" required-field mask="(99) 99999-9999"/>
+        </div>
+
+        <div class="form-group">
+            <button class="btn btn-success">Salvar</button>
+            <button type="button" class="btn btn-outline-secondary" ng-click="cancelar()">Voltar</button>
+        </div>
+    </form>
+</div>

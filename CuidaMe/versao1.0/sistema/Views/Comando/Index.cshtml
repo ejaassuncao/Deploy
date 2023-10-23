@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "Comandos Cadastrados";
+}
+
+@section scripts {
+    <script src="@Url.Content("~/Scripts/EnviarComando/service.js")"></script>
+    <script src="@Url.Content("~/Scripts/EnviarComando/module.js")"></script>
+}
+
+<div ng-controller="ListComandoController">
+    <h2>@ViewBag.Title</h2>
+
+    <div class="row">
+        <div class="col-md-3">
+            <search placeholder="Digite o termo de busca..."
+                    ng-model="filtros.search"
+                    on-search="listar()">
+            </search>
+        </div>
+    </div>
+
+    <datatable items="item in comandos" filters="filtros" refresh="listar()">
+        <column orderable get="item.Nome" initial>Nome</column>
+        <column get="item.Execucao" initial>Comando</column> 
+        <buttons style="width:30px">
+            <button new="@Url.Action("Create")"></button>
+            <button edit="editar(item)"></button>
+            <button remove="excluir(item)"></button>           
+        </buttons>
+    </datatable>
+
+    <pagination filters="filtros" refresh="listar()"></pagination>
+</div>

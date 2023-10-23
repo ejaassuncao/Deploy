@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Cliente";
+}
+
+@section scripts {
+    <script src="@Url.Content("~/Scripts/Cliente/service.js")"></script>
+    <script src="@Url.Content("~/Scripts/Cliente/module.js")"></script>
+}
+
+<div ng-controller="ListClienteController">
+    <h2>@ViewBag.Title</h2>
+
+    <div class="row">
+        <div class="col-md-3">
+            <search placeholder="Digite o termo de busca..."
+                    ng-model="filtros.search"
+                    on-search="listar()">
+            </search>
+        </div>
+    </div>
+
+    <datatable items="item in clientes" filters="filtros" refresh="listar()">
+        <column orderable get="item.Nome" initial>Nome</column>
+        <column orderable get="item.Email">E-mail</column>
+
+        <buttons>
+            @if (ViewBag.Usuario.Master != CuidarMe.Domain.Models.TipoUsuario.Empresa)
+            {
+                <button new="@Url.Action("Create")"></button>
+            }
+            <button edit="editar(item)"></button>
+            <button remove="excluir(item)"></button>
+            <button ng-click="copiarChave(item.Chave)" class="btn btn-outline-dark btn-sm fa fa-copy" title="Copiar chave"></button>
+        </buttons>
+    </datatable>
+
+    <pagination filters="filtros" refresh="listar()"></pagination>
+</div>

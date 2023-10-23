@@ -1,0 +1,111 @@
+﻿@model int
+@{
+    ViewBag.Title = "Monitoramento da pulseira";
+}
+
+@section scripts {
+    <script src="@Url.Content("~/Scripts/Monitoramento/service.js")"></script>
+    <script src="@Url.Content("~/Scripts/Localizacao/service.js")"></script>
+    <script src="@Url.Content("~/Scripts/Pulseira/service.js")"></script>
+    <script src="@Url.Content("~/Scripts/Pulseira/module.js")"></script>
+}
+
+<h2>@ViewBag.Title</h2>
+<div ng-controller="PulseiraDetailsController" ng-init="carregar(@Model)">
+
+    <div class="row mb-2">
+
+        <div class="col-md-12 mb-2">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <h3 ng-bind="pulseira.NomeDoIdoso"></h3>
+                            <dl class="row">
+                                <dt class="col-sm-3">Imei</dt>
+                                <dd class="col-sm-9" ng-bind="pulseira.Imei"></dd>
+
+                                <dt class="col-sm-3">Telefone</dt>
+                                <dd class="col-sm-9" ng-bind="pulseira.Telefone"></dd>
+                            </dl>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <dl class="row">
+                                <dt class="col-sm-3">Última Leitura</dt>
+                                <dd class="col-sm-9" ng-bind="pulseira.DataDeAtualizacao | shortDateTimeString"></dd>
+
+                                <dt class="col-sm-3">Bateria</dt>
+                                <dd class="col-sm-9" ng-bind="pulseira.Bateria"></dd>
+
+                                <dt class="col-sm-3">Sinal GSM</dt>
+                                <dd class="col-sm-9" ng-bind="pulseira.SinalGsm"></dd>
+                            </dl>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Monitoramento</h5>
+                    <div class="table-responsive">
+
+
+                        <datatable items="item in monitoramentos" filters="filtrosDeMonitoramento" refresh="listarMonitoramento()">
+                            <column orderable get="item.Data | shortDateTimeString">Data</column>
+                            <column get="item.FrequenciaCardiaca">Frequência cardíaca</column>
+                            <column get="item.Sistolica">Sistólica</column>
+                            <column get="item.Diastolica">Diastólica</column>
+                            <column get="item.Saturacao">Saturação</column>
+                        </datatable>
+
+                    </div>
+                    <pagination filters="filtrosDeMonitoramento" refresh="listarMonitoramento()"></pagination>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <h5 class="card-title">Localização (GPS)</h5>
+                        <datatable items="item in localizacoes" filters="filtrosDeLocalizacao" refresh="listarLocalizacao()">
+                            <column orderable get="item.Data | shortDateTimeString">Data</column>
+                            <column get="item.Latitude">Latitude</column>
+                            <column orderable get="item.Longitude">Longitude</column>                           
+                        </datatable>
+                    </div>
+                    <pagination filters="filtrosDeLocalizacao" refresh="listarLocalizacao()"></pagination>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-6">
+            <div class="card">
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <h5 class="card-title">Localização (LBS)</h5>
+                        <datatable items="item in localizacoesLbs" filters="filtrosDeLocalizacaoLbs" refresh="listarLocalizacaoLbs()">
+                            <column orderable get="item.Data | shortDateTimeString">Data</column>
+                            <column get="item.Mcc">MCC</column>
+                            <column get="item.Mnc">MNC</column>
+                            <column orderable get="item.Lac">LAC</column>
+                            <column orderable get="item.Cid">Cell ID</column>                          
+                        </datatable>
+                    </div>
+                    <pagination filters="filtrosDeLocalizacaoLbs" refresh="listarLocalizacaoLbs()"></pagination>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="form-group">
+        <a class="btn btn-outline-secondary" href="@Url.Action("Index")">Voltar</a>
+    </div>
+</div>
