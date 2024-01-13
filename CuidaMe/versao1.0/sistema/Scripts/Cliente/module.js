@@ -20,6 +20,7 @@
             }
 
             $scope.cliente.Idosos.map(function (idoso) {
+                debugger;
                 if (idoso.Pulseira) {
                     idoso.IdPulseira = idoso.Pulseira.Id;
                 } else {
@@ -60,7 +61,10 @@
             $scope.aberta = false;
         };
 
-        $scope.adicionarIdoso = function () {
+        $scope.adicionarIdoso = function (imei) {
+            if (imei == undefined || imei == "") {
+                $scope.idoso.Pulseira = null;
+            }            
             $scope.cliente.Idosos.push($scope.idoso);
             $scope.aberta = false;
             $scope.idosoEmEdicao = null;

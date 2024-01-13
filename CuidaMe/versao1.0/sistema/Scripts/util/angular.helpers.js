@@ -2276,7 +2276,8 @@
     app.filter("shortDateString", function () {
         return function (date) {
             if (date && date instanceof Date) {
-                date = date.toLocaleString("pt-BR", { timeZone: "America/Sao_Paulo", dateStyle: "short" });
+                //date = date.toLocaleString("pt-BR", { timeZone: "America/Sao_Paulo", dateStyle: "short" });
+                date = date.toLocaleString('pt-BR', { dateStyle: "short", timeStyle: "short" })
             }
 
             return date;
@@ -2286,7 +2287,8 @@
     app.filter("shortDateTimeString", function () {
         return function (date) {
             if (date && date instanceof Date) {
-                date = date.toLocaleString("pt-BR", { timeZone: "America/Sao_Paulo", dateStyle: "short", timeStyle: "short" });
+                //date = date.toLocaleString("pt-BR", { timeZone: "America/Sao_Paulo", dateStyle: "short", timeStyle: "short" });
+                date = date.toLocaleString('pt-BR', {dateStyle: "short", timeStyle: "short" })
             }
 
             return date;

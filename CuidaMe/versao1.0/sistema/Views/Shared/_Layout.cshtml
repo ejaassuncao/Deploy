@@ -1,9 +1,14 @@
 ﻿@using CuidarMe.Web.Models
 @{
-    const string appName = "Cuide Me";
+    string appName = CuidarMe.Domain.Helpers.Constantes.NOME_SISTEMA;
+    string versao = CuidarMe.Domain.Helpers.Constantes.VERSAO_SISTEMA;
+
     var title = ViewBag.Title;
 
     UsuarioDaSessao usuario = ViewBag.Usuario;
+
+
+
 }
 <!DOCTYPE html>
 <html ng-app="app">
@@ -85,7 +90,7 @@
 
     <footer class="footer">
         <div class="container">
-            <p class="text-muted m-0">&copy; @DateTime.Now.Year - @appName</p>
+            <p class="text-muted m-0">&copy; @DateTime.Now.Year - @appName, *Versão:@versao </p>
         </div>
     </footer>
 </body>

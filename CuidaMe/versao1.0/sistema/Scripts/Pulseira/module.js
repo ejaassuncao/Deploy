@@ -84,7 +84,7 @@
         };
 
         //***Novos comandos***
-        $scope.comando = { cmd: '', };      
+        $scope.comando = { cmd: '', };
 
         $scope.abrirDialogEnviarComando = function (pulseira) {
             $scope.filtrosComandos = { Predicate: "Nome", Reverse: false, currentPage: 1, itemsPerPage: 100 };
@@ -224,6 +224,210 @@
 
         $scope.historico = function (id) {
             $pulseiras.redirect("Details", id);
+        }
+    });
+
+    app.controller("PulseiraDetailsChartsController", function ($scope, $pulseiras, $monitoramentos, $localizacoes, $localizacoesLbs) {
+
+        $scope.carregar = function (id) {
+
+            $scope.idPulseira = id;
+
+            $scope.filtrosDeMonitoramento =
+            {
+                DataInicial: null,
+                DataFinal: null
+            };
+
+            $pulseiras.get(id, function (pulseira) {
+                $scope.pulseira = pulseira;
+                $scope.listarMonitoramentoCharts();
+            });
+        };
+
+        $scope.listarMonitoramentoCharts = function () {
+
+            $scope.filtrosDeMonitoramento.IdPulseira = $scope.idPulseira;
+            $scope.filtrosDeMonitoramento.IdIdoso = $scope.pulseira.IdIdoso;
+
+            $monitoramentos.listCharts($scope.filtrosDeMonitoramento, function (r) {
+                carregarChartsAll(r);
+            });
+        };
+
+        $scope.historico = function (id) {
+            $pulseiras.redirect("Details", id);
+        }
+
+        var carregarChartsAll = function (data) {
+            var monitoramentosDados = data.monitoramentos;
+            var configuracoesDados = data.configuracoes;
+
+            var domAll = document.getElementById('graficoAll');
+            var chartAll = echarts.init(domAll, null, {
+                renderer: 'canvas',
+                useDirtyRect: false
+            });
+
+            chartAll.setOption(
+                (option = {
+                    animationDuration: 3000,
+                    tooltip: {
+                        trigger: 'axis'
+                    },
+                    legend: {
+                        data: ['FrequenciaCardiaca', 'Sistolica', 'Diastolica', 'Saturacao']
+                    },
+                    grid: {
+                        left: '5%',
+                        right: '5%',
+                        bottom: '10%'
+                    },
+                    xAxis: {
+                        type: 'category',
+                        boundaryGap: false,
+                        data: monitoramentosDados.map(function (item) {
+                            return item['Data'].toLocaleString('pt-BR');
+                        })
+                    },
+                    yAxis: {
+                        max: GetMaxValue(data)
+                    },
+                    toolbox: {
+                        right: 10,
+                        feature: {
+                            saveAsImage: {}
+                        }
+                    },
+                    dataZoom: [
+                        {
+                            start: 0,
+                            end: 100
+                        },
+                        {
+                            type: 'inside'
+                        }
+                    ],
+                    series: [
+                        {
+                            name: 'FrequenciaCardiaca',
+                            type: 'line',
+                            color: '#BA55D3',
+                            showSymbol: false,
+                            smooth: true,
+                            data: monitoramentosDados.map(function (item) {
+                                return item['FrequenciaCardiaca'];
+                            }),
+                            markLine: {
+                                silent: true,
+                                lineStyle: {
+                                    color: '#333'
+                                },
+                                data: [
+                                    {
+                                        yAxis: configuracoesDados.FrequenciaCardiacaMinima
+                                    },
+                                    {
+                                        yAxis: configuracoesDados.FrequenciaCardiacaMaxima
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            name: 'Sistolica',
+                            type: 'line',
+                            color: '#DAA520',
+                            showSymbol: false,
+                            smooth: true,
+                            data: monitoramentosDados.map(function (item) {
+                                return item['Sistolica'];
+                            }),
+                            markLine: {
+                                silent: false,
+                                lineStyle: {
+                                    color: '#DAA520'
+                                },
+                                data: [
+                                    {
+                                        yAxis: configuracoesDados.SistolicaMinima
+                                    },
+                                    {
+                                        yAxis: configuracoesDados.SistolicaMaxima
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            name: 'Diastolica',
+                            type: 'line',
+                            color: '#FF1493',
+                            showSymbol: false,
+                            smooth: true,
+                            data: monitoramentosDados.map(function (item) {
+                                return item['Diastolica'];
+                            }),
+                            markLine: {
+                                silent: true,
+                                lineStyle: {
+                                    color: '#333'
+                                },
+                                data: [
+                                    {
+                                        yAxis: configuracoesDados.DiastolicaMinima
+                                    },
+                                    {
+                                        yAxis: configuracoesDados.DiastolicaMaxima
+                                    }
+                                ]
+                            }
+
+                        },
+                        {
+                            name: 'Saturacao',
+                            type: 'line',
+                            color: '#00CED1',
+                            showSymbol: false,
+                            smooth: true,
+                            data: monitoramentosDados.map(function (item) {
+                                return item['Saturacao'];
+                            }),
+                            markLine: {
+                                silent: true,
+                                lineStyle: {
+                                    color: '#333'
+                                },
+                                data: [
+                                    {
+                                        yAxis: configuracoesDados.SaturacaoMinima
+                                    },
+                                    {
+                                        yAxis: configuracoesDados.SaturacaoMaxima
+                                    }
+                                ]
+                            }
+                        },
+                    ],
+                })
+            );
+
+            window.addEventListener('resize', chartAll.resize);
+        }   
+
+        function GetMaxValue(data) {
+            var arrayMaxValues = [];
+
+            arrayMaxValues.push(data.monitoramentos.reduce((a, b) => Math.max(a, b['FrequenciaCardiaca']), -Infinity));
+            arrayMaxValues.push(data.monitoramentos.reduce((a, b) => Math.max(a, b['Sistolica']), -Infinity));
+            arrayMaxValues.push(data.monitoramentos.reduce((a, b) => Math.max(a, b['Diastolica']), -Infinity)); 
+            arrayMaxValues.push( data.monitoramentos.reduce((a, b) => Math.max(a, b['Saturacao']), -Infinity));
+            arrayMaxValues.push(data.configuracoes.FrequenciaCardiacaMaxima);        
+            arrayMaxValues.push(data.configuracoes.DiastolicaMaxima);           
+            arrayMaxValues.push( data.configuracoes.SaturacaoMaxima);         
+            arrayMaxValues.push(data.configuracoes.SistolicaMaxima);
+
+            var maxValue = arrayMaxValues.reduce((a, b) => Math.max(a, b), -Infinity);
+
+            return maxValue+10;
         }
     });
 })();

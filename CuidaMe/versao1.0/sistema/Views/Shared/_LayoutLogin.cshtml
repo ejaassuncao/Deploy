@@ -1,12 +1,13 @@
 ﻿@{
-    const string appName = "CuidarMe.Care";
+    string appName = CuidarMe.Domain.Helpers.Constantes.NOME_SISTEMA;
+    string versao = CuidarMe.Domain.Helpers.Constantes.VERSAO_SISTEMA;
 }
 <!DOCTYPE html>
 <html ng-app="app">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@appName - Login</title>
+    <title>@appName, @versao</title>
     <link rel="shortcut icon" href="~/Images/favicon.ico">
     @Styles.Render("~/Content/admin")
     <link href="@Url.Content("~/Content/jqueryscripttop.css")" rel="stylesheet" />
@@ -17,7 +18,7 @@
 <body>
     <loading></loading>
     <div class="login-container">
-        @RenderBody()
-    </div>
+        @RenderBody()        
+    </div>   
 </body>
 </html>

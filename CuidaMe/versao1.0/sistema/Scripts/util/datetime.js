@@ -200,3 +200,8 @@ Date.prototype.toDateTime = function () {
 String.prototype.toDateTime = function () {
     return new DateTime(this.toString());
 };
+Date.prototype.AddDay = function (days) {
+    var ms = new Date().getTime() + (86400000 * days);
+    var added = new Date(ms);
+    return added;
+};
