@@ -201,7 +201,7 @@
 
             makeRequest();
         }
-        function generateOptions(method, args) {
+        function generateOptions(method, args) {          
             var options = args[0];
 
             if (method === "DELETE" && typeof (options) != "object") {
@@ -222,6 +222,8 @@
                             options.url = arg;
                         else if (!options[dataField])
                             options[dataField] = arg;
+                        else if ('notLoader' == arg)
+                            options["showLoader"] = "";
                     }
 
                     if (typeof arg == "object") {
@@ -242,7 +244,7 @@
             options.headers = $.extend(options.headers, { "X-Requested-With": "XMLHttpRequest" });
 
             if (!("showLoader" in options)) options.showLoader = true;
-            if (!("blockScreen" in options)) options.blockScreen = options.method === "POST";
+            if (!("blockScreen" in options)) options.blockScreen = options.method === "POST" && options.showLoader==true;
 
             return options;
         }

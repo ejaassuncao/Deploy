@@ -134,8 +134,8 @@
                 Comando: $scope.montaComando
             };
 
-            $comando.enviarComando(dados, function (r) {
-                $scope.enviar = false;
+            $comando.enviarComando(dados, function (r) {                
+                $scope.enviar = true;
                 $scope.msgRetorno = `- ${r.Message}<br/>`;
                 if (r.Status == "Sucesso")
                     checkLog(r);
@@ -154,14 +154,16 @@
             $scope.listar();
         }
 
-        function checkLog(param) {
+        function checkLog(param) {          
             $comando.getLog(param, function (r) {
                 if (r.Status != 'FimLog') {
-                    console.log(r.Message);
                     $scope.msgRetorno = r.Message;
                     $timeout(function () {
                         checkLog(r);
                     }, 3000)
+                } else {
+                    //fim
+                    $scope.enviar = false;
                 }
             });
         }

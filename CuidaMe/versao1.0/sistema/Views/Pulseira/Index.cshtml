@@ -42,33 +42,33 @@
 
 
     <dialog is-open="aberta" static>
-            <dialog-form>
-                <validation submit="salvarConfiguracao()"></validation>
+        <dialog-form>
+            <validation submit="salvarConfiguracao()"></validation>
 
-                <dialog-title>
-                    Configuração da pulseira
-                </dialog-title>
-                <dialog-body>
+            <dialog-title>
+                Configuração da pulseira
+            </dialog-title>
+            <dialog-body>
 
-                    <div class="form-group">
-                        <label>Modo de trabalho</label>
-                        <enum object="modosDeTrabalho" ng-model="pulseiraSelecionada.ModoDeTrabalho"></enum>
-                    </div>
+                <div class="form-group">
+                    <label>Modo de trabalho</label>
+                    <enum object="modosDeTrabalho" ng-model="pulseiraSelecionada.ModoDeTrabalho"></enum>
+                </div>
 
-                    <div class="form-group">
-                        <label>Intervalo de leitura</label>
-                        <input type="number" class="form-control" ng-model="pulseiraSelecionada.IntervaloDeMonitoramento" min="1" />
-                    </div>
+                <div class="form-group">
+                    <label>Intervalo de leitura</label>
+                    <input type="number" class="form-control" ng-model="pulseiraSelecionada.IntervaloDeMonitoramento" min="1" />
+                </div>
 
-                </dialog-body>
-                <dialog-footer>
-                    <button class="btn btn-success">Salvar</button>
-                    <button type="button" class="btn btn-danger" ng-click="resetar()">Resetar</button>
-                    <button type="button" class="btn btn-outline-secondary" ng-click="fecharDialog()">Cancelar</button>
-                </dialog-footer>
+            </dialog-body>
+            <dialog-footer>
+                <button class="btn btn-success">Salvar</button>
+                <button type="button" class="btn btn-danger" ng-click="resetar()">Resetar</button>
+                <button type="button" class="btn btn-outline-secondary" ng-click="fecharDialog()">Cancelar</button>
+            </dialog-footer>
 
-            </dialog-form>
-        </dialog>
+        </dialog-form>
+    </dialog>
 
     <dialog is-open="abertaNew" static class="modal-lg">
         <dialog-form>
@@ -103,7 +103,7 @@
                     <label ng-show="campos.length>0">Comando executado</label>
                     <input type="text" disabled class="form-control" ng-model="montaComando " />
                 </div>
-                
+
                 <div ng-show="msgRetorno.length>0" class="alert alert-info" style="overflow-y:auto; height:150px" ng-bind-html="msgRetorno"></div>
 
             </dialog-body>

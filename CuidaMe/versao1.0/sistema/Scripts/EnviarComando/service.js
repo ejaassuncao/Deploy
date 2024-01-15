@@ -8,8 +8,8 @@
             enviarComando: function (data, success) {
                 $request.post(`/api/Comandos/EnviarComando`, data, success);
             },
-            getLog: function (data, success) {
-                $request.post(`/api/Comandos/GetLog`, data, success);
+            getLog: function (data,  success) {
+                $request.post(`/api/Comandos/GetLog`, data, 'notLoader', success);
             }
         });
     });
