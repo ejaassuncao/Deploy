@@ -5,42 +5,42 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>C:\DES\Deploy\CuidaMe\versao1.0\api</_PublishTargetUrl>
-    <History>True|2024-01-13T23:11:19.3363741Z;True|2024-01-12T22:01:46.9162373-04:00;</History>
+    <History>True|2024-01-14T04:22:08.1028142Z;True|2024-01-13T19:11:19.3363741-04:00;True|2024-01-12T22:01:46.9162373-04:00;</History>
     <LastFailureDetails />
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/App_global.asax.compiled">
-      <publishTime>01/13/2024 19:11:17</publishTime>
+      <publishTime>01/14/2024 00:22:07</publishTime>
     </File>
     <File Include="bin/App_global.asax.dll">
-      <publishTime>01/13/2024 19:11:17</publishTime>
+      <publishTime>01/14/2024 00:22:07</publishTime>
     </File>
     <File Include="bin/AutoMapper.dll">
       <publishTime>10/16/2020 11:36:54</publishTime>
     </File>
     <File Include="bin/CuidarMe.Context.dll">
-      <publishTime>01/12/2024 22:37:56</publishTime>
+      <publishTime>01/13/2024 19:12:01</publishTime>
     </File>
     <File Include="bin/CuidarMe.Context.dll.config">
       <publishTime>12/15/2023 17:42:39</publishTime>
     </File>
     <File Include="bin/CuidarMe.Context.pdb">
-      <publishTime>01/12/2024 22:37:56</publishTime>
+      <publishTime>01/13/2024 19:12:01</publishTime>
     </File>
     <File Include="bin/CuidarMe.Domain.dll">
-      <publishTime>01/12/2024 22:37:55</publishTime>
+      <publishTime>01/13/2024 19:11:59</publishTime>
     </File>
     <File Include="bin/CuidarMe.Domain.dll.config">
       <publishTime>08/26/2023 15:38:50</publishTime>
     </File>
     <File Include="bin/CuidarMe.Domain.pdb">
-      <publishTime>01/12/2024 22:37:55</publishTime>
+      <publishTime>01/13/2024 19:11:59</publishTime>
     </File>
     <File Include="bin/CuidarMe.WebApi.dll">
-      <publishTime>01/13/2024 19:11:09</publishTime>
+      <publishTime>01/13/2024 19:12:02</publishTime>
     </File>
     <File Include="bin/CuidarMe.WebApi.pdb">
-      <publishTime>01/13/2024 19:11:09</publishTime>
+      <publishTime>01/13/2024 19:12:02</publishTime>
     </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>04/16/2020 16:38:42</publishTime>
@@ -301,10 +301,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>11/29/2023 20:05:30</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>01/13/2024 19:11:11</publishTime>
+      <publishTime>01/14/2024 00:22:02</publishTime>
     </File>
     <File Include="Properties/PublishProfiles/Deploy-Git.pubxml.user">
-      <publishTime>01/12/2024 22:01:46</publishTime>
+      <publishTime>01/13/2024 19:11:19</publishTime>
     </File>
     <File Include="Properties/PublishProfiles/IISProfile.pubxml.user">
       <publishTime>12/22/2023 19:53:33</publishTime>
@@ -313,7 +313,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>12/22/2023 20:07:26</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>01/13/2024 19:11:09</publishTime>
+      <publishTime>01/14/2024 00:22:02</publishTime>
     </File>
   </ItemGroup>
 </Project>
